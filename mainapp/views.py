@@ -8,6 +8,13 @@ from django.contrib import messages
 def index(request):
     return render(request , 'main-page/index.html')
 
+    
+def superuser(request):
+    if request.user.is_superuser == True and request.user.is_staff == True and request.user.is_active == True:
+        return render(request , 'superuser/superuser.html')
+    else:
+        messages.error(request , 'Permisstions not allowed')
+        return redirect('/check_user/')
 
 
 def user_login(request):
@@ -34,10 +41,6 @@ def user_logout(request):
 def check_user(request):
     if request.user.is_superuser == True and request.user.is_staff == True and request.user.is_active == True:
         return redirect('/superuser/')
-    elif request.user.is_superuser == False and request.user.is_staff == True and request.user.is_active == True:
-        return redirect('/staff/')
-    elif request.user.is_superuser == False and request.user.is_staff == False and request.user.is_active == True:
-        return redirect('/student/')
     else:
         messages.error(request , 'User in valid, Please login')
         return redirect('/login/')

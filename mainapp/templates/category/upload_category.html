@@ -54,17 +54,23 @@
 
             <div class="row d-flex justify-content-center">
                 <div class="col-4 bg-secondary text-white">
+                    {% if update_category_data %}
+                    <form method="POST" action="/superuser/upload_category/">
+                    <input type="hidden" name="update_id" value="{{update_category_data.categoryID}}">
+                    {% else %}
                     <form method="POST">
+                    <input type="hidden" name="update_id">
+                    {% endif %}
                         {% csrf_token %}
                         <div class="form-group mb-3 col-md-12">
                             <label for="Category">Category :</label>
                             <input type="text" class="form-control" id="Category" aria-describedby="emailHelp"
-                                placeholder="Enter Category" name="category" required>
+                                placeholder="Enter Category" name="category" required value="{{update_category_data.categoryName}}">
                         </div>
                         <div class="form-group mb-3 col-md-12">
                             <label for="categoryDiscription">Category Discription</label>
                             <input type="text" class="form-control" id="categoryDiscription"
-                                placeholder="Category Discription" name="categorydiscrption" required>
+                                placeholder="Category Discription" name="categorydiscrption" required value="{{update_category_data.categoryDiscription}}">
                         </div>
                         <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                     </form>
