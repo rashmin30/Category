@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>View Category</title>
+    <title>View Sub Category</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -55,8 +55,8 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-title">
-                <span>View Category</span>
-                <h2>View Category</h2>
+                <span>View Sub Category</span>
+                <h2>View Sub Category</h2>
             </div>
 
             <div class="row d-flex justify-content-center text-center mb-1 p-2">
@@ -73,20 +73,20 @@
                     More
                 </div>
             </div>
-            {% for i in all_category_data %}
+            {% for i in all_sub_category_data %}
             <div class="row d-flex justify-content-center text-center mb-1 p-2">
                 <div class="col-1 border-bottom border-primary">
-                    {{i.categoryID}}
+                    {{i.subcategoryID}}
                 </div>
                 <div class="col-2 border-bottom border-primary">
-                    {{i.categoryName}}
+                    {{i.subCategoryName}}
                 </div>
                 <div class="col-3 border-bottom border-primary">
-                    {{i.categoryDiscription}}
+                    {{i.categoryID.categoryName}}
                 </div>
                 <div class="col-2 border-bottom border-primary">
-                    <a href="update/?update_id={{i.categoryID}}" class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i></a>
-                    <a href="?delete_id={{i.categoryID}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                    <a href="update/?update_id={{i.subcategoryID}}" class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="?delete_id={{i.subcategoryID}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                 </div>
             </div>
             {% endfor %}

@@ -8,8 +8,13 @@
     <nav id="navbar" class="navbar">
       <ul>
         <li><a class="nav-link scrollto active" href="/check_user/">Home</a></li>
+        {% if request.user.is_superuser == True %}
+        <li><a class="nav-link scrollto" href="/all-user">User</a></li>
+        {% endif %}
         <li><a class="nav-link scrollto" href="/superuser/upload_category/">Upload Category</a></li>
         <li><a href="/superuser/view_category/">View Category</a></li>
+        <li><a class="nav-link scrollto" href="/superuser/upload_sub_category/">Upload Sub Category</a></li>
+        <li><a class="nav-link scrollto" href="/superuser/view_sub_category/">View Sub Category</a></li>
         <li><a class="nav-link scrollto" href="/logout/">Logout</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
